@@ -1,0 +1,32 @@
+.extra-info-wrapper {
+    height: 0;
+    overflow: hidden;
+    transition: all .3s ease-in;
+}
+
+.opened .extra-info-wrapper {
+    height: 150px;
+}
+
+.general-info-wrapper > div {
+    display: inline-block;
+}
+
+.artist-wrapper,
+.track,
+.collection {
+    width: 25%;
+}
+
+.cover {
+    float: left;
+    margin: 0 10px 0 0;
+}
+
+.genre {
+    width: 20%;
+}
+
+.expand {
+    width: 5%;
+}
