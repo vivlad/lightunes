@@ -18,7 +18,8 @@
 }
 
 .results-wrapper {
-  max-width: 650px;
+  max-width: 1340px;
   margin: 0 auto;
-  padding: 10px;
+  padding: 10px 20px;
+  background-color: #edf8ff;
 }

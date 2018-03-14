@@ -8,25 +8,89 @@
     height: 150px;
 }
 
+.general-info-wrapper {
+  display: flex;
+  align-items: center;
+  flex-flow: row wrap;
+}
+
 .general-info-wrapper > div {
-    display: inline-block;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.results-item {
+  position: relative;
+  padding: 20px;
+}
+
+.results-item:nth-child(odd) {
+  background-color: #cae1f1;
 }
 
 .artist-wrapper,
-.track,
-.collection {
-    width: 25%;
+.artist {
+  display: flex;
+  align-items: center;
+  margin: 0 20px 0 0;
 }
 
 .cover {
-    float: left;
     margin: 0 10px 0 0;
 }
 
 .genre {
-    width: 20%;
+  flex: 1 100px;
 }
 
 .expand {
-    width: 5%;
+    position: relative;
+}
+
+.toggler {
+  display: block;
+  position: absolute;
+  width: 34px;
+  height: 34px;
+  right: 30px;
+  cursor: pointer;
+}
+
+.toggler:before {
+  content: '';
+  display: block;
+  width: 7px;
+  background: #000;
+  height: 100%;
+  position: absolute;
+  left: 14px;
+  border-radius: 2px;
+  transition: all 0.3s ease-out;
+}
+
+.toggler:after {
+  content: '';
+  display: block;
+  height: 7px;
+  background: #000;
+  width: 100%;
+  position: absolute;
+  top: 14px;
+  border-radius: 2px;
+}
+
+.opened .toggler:before {
+  opacity: 0;
+}
+
+.extra-info-wrapper {
+  display: flex;
+  align-items: center;
+  flex-flow: row wrap;
+}
+
+.extra-info-wrapper > div {
+  flex: 1 100px;
+  text-align: left;
 }
