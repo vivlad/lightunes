@@ -1,6 +1,7 @@
 import React from 'react';
 
 import './ResultsItem.css';
+import Player from '../Player';
 
 const ResultsItem = (props) => {
     const {
@@ -12,7 +13,8 @@ const ResultsItem = (props) => {
         trackCount,
         collectionPrice,
         trackTimeMillis,
-        trackPrice
+        trackPrice,
+        previewUrl
     } = props.data;
 
     //time format
@@ -24,10 +26,10 @@ const ResultsItem = (props) => {
     return (
         <div className={`results-item ${props.additionalClass}`}>
             <div className="general-info-wrapper">
-                <div classname="col">
+                <div className="col">
                   <div className="artist-wrapper">
                       <div className="cover">
-                          <img src={artworkUrl100} alt={`${artistName} - ${collectionName}`} />
+                        <img src={artworkUrl100} alt={`${artistName} - ${collectionName}`} />
                       </div>
                       <div className="artist">{artistName}</div>
                   </div>
@@ -43,30 +45,34 @@ const ResultsItem = (props) => {
                 </div>
             </div>
             <div className="extra-info-wrapper">
-                <div className="collection-wrapper col">
-                  <div className="collection-name">
-                    <span>Collection: </span>
-                    {collectionName}
-                  </div>
-                  <div className="track-count">
-                    <span>Track Count: </span>
-                    {trackCount}
-                  </div>
-                  <div className="collection-price">
-                    <span>Price: </span>
-                    {collectionPrice} USD
-                  </div>
+              <div className="full-track-preview" onClick={() => props.preview(previewUrl)}>
+                <span>{artistName} - {trackName}</span>
+                {props.player ? <Player url={props.player}/> : null}
+              </div>
+              <div className="collection-wrapper col">
+                <div className="collection-name">
+                  <span className="bold">Collection: </span>
+                  {collectionName}
                 </div>
-                <div className="track-wrapper col">
-                  <div className="track-time">
-                    <span>Track duration: </span>
-                    {minutes+':'+seconds}
-                  </div>
-                  <div className="track-price">
-                    <span>Track Price: </span>
-                    {trackPrice} USD
-                  </div>
+                <div className="track-count">
+                  <span className="bold">Track Count: </span>
+                  {trackCount}
                 </div>
+                <div className="collection-price">
+                  <span className="bold">Price: </span>
+                  {collectionPrice} USD
+                </div>
+              </div>
+              <div className="track-wrapper col">
+                <div className="track-time">
+                  <span className="bold">Track duration: </span>
+                  {minutes+':'+seconds} Min
+                </div>
+                <div className="track-price">
+                  <span className="bold">Track Price: </span>
+                  {trackPrice} USD
+                </div>
+              </div>
             </div>
         </div>
     );

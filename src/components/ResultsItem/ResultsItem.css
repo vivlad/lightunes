@@ -1,11 +1,43 @@
+@font-face {
+  font-family: 'icons';
+  src:  url('../../fonts/icons/icons.eot?cgps14');
+  src:  url('../../fonts/icons/icons.eot?cgps14#iefix') format('embedded-opentype'),
+    url('../../fonts/icons/icons.ttf?cgps14') format('truetype'),
+    url('../../fonts/icons/icons.woff?cgps14') format('woff'),
+    url('../../fonts/icons/icons.svg?cgps14#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+	font-family: 'Open Sans';
+	src:local("Open Sans"),
+		url('../../fonts/open_sans/OpenSans.eot?#iefix') format('embedded-opentype'),
+		url('../../fonts/open_sans/OpenSans.woff') format('woff'),
+		url('../../fonts/open_sans/OpenSans.ttf')  format('truetype'),
+		url('../../fonts/open_sans/OpenSans.svg#OpenSans') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+.top-headers .artist-wrapper {
+  padding-left: 130px;
+  width: 80px;
+}
+
+.results-wrapper.top-headers.results-item {
+  padding: 5px;
+  background-color: transparent;
+}
+
 .extra-info-wrapper {
-    height: 0;
-    overflow: hidden;
-    transition: all .3s ease-in;
+  height: 0;
+  overflow: hidden;
+  transition: all .3s ease-in;
 }
 
 .opened .extra-info-wrapper {
-    height: 150px;
+  height: 150px;
 }
 
 .general-info-wrapper {
@@ -23,6 +55,7 @@
 .results-item {
   position: relative;
   padding: 20px;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .results-item:nth-child(odd) {
@@ -37,15 +70,21 @@
 }
 
 .cover {
-    margin: 0 10px 0 0;
+  margin: 0 10px 0 0;
+}
+
+.genre,
+.collection {
+  flex: 1 100px;
+  text-align: left;
 }
 
 .genre {
-  flex: 1 100px;
+  padding-right: 50px;
 }
 
 .expand {
-    position: relative;
+  position: relative;
 }
 
 .toggler {
@@ -93,4 +132,38 @@
 .extra-info-wrapper > div {
   flex: 1 100px;
   text-align: left;
+}
+
+.extra-info-wrapper .full-track-preview {
+  flex: 1 100%;
+  padding-left: 110px;
+  font-size: 25px;
+  color: #8e8f8e;
+}
+
+.full-track-preview span {
+  cursor: pointer;
+}
+
+.extra-info-wrapper .full-track-preview span:after {
+  content: '\e911';
+  font-family: 'icons';
+  font-size: 22px;
+  margin-left: 20px;
+}
+
+.full-track-preview audio {
+  display: block;
+}
+
+.collection-wrapper {
+  padding-left: 110px;
+}
+
+.track-wrapper {
+  padding-right: 110px;
+}
+
+.bold {
+  font-weight: bold;
 }
