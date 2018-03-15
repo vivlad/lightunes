@@ -13,7 +13,6 @@ class App extends Component {
         searchResults: null,
         message: messages.tryToSearch,
         openedItem: null,
-        preview: null,
     }
   }
 
@@ -48,27 +47,16 @@ class App extends Component {
   handleClickItem = (idx) => {
     this.setState( (prevState) => {
       if( prevState.openedItem === idx ) {
-        return {
-          openedItem: null,
-          preview: null
-        }
+        return {openedItem: null}
       } else {
-        return {
-          openedItem: idx,
-          preview: null
-        }
+        return {openedItem: idx}
       }
     });
   }
 
-  preview = (url) => {
-    this.setState({preview: url});
-  }
-
   render() {
-    const {searchResults, message, openedItem, preview} = this.state;
+    const {searchResults, message, openedItem} = this.state;
     const results = searchResults ? searchResults.results : null;
-    console.log(results);
     return (
       <div className="App">
         <SearchForm
@@ -99,8 +87,6 @@ class App extends Component {
                   data={data}
                   additionalClass={openedItem === idx ? 'opened' : ''}
                   handleClickItem={this.handleClickItem}
-                  preview={this.preview}
-                  player={openedItem === idx && preview ? preview : null}
                 />
               ))}
             </div>

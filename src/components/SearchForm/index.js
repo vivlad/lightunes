@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
-export default class SearchForm extends Component {
+class SearchForm extends Component {
     constructor(props) {
         super(props);
 
@@ -30,3 +31,9 @@ export default class SearchForm extends Component {
         );
     }
 }
+
+SearchForm.propTypes = {
+  submitHandler: PropTypes.func,
+}
+
+export default SearchForm;

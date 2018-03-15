@@ -141,10 +141,6 @@
   color: #8e8f8e;
 }
 
-.full-track-preview span {
-  cursor: pointer;
-}
-
 .extra-info-wrapper .full-track-preview span:after {
   content: '\e911';
   font-family: 'icons';

@@ -1,7 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './ResultsItem.css';
-import Player from '../Player';
 
 const ResultsItem = (props) => {
     const {
@@ -13,8 +13,7 @@ const ResultsItem = (props) => {
         trackCount,
         collectionPrice,
         trackTimeMillis,
-        trackPrice,
-        previewUrl
+        trackPrice
     } = props.data;
 
     //time format
@@ -45,9 +44,8 @@ const ResultsItem = (props) => {
                 </div>
             </div>
             <div className="extra-info-wrapper">
-              <div className="full-track-preview" onClick={() => props.preview(previewUrl)}>
+              <div className="full-track-preview">
                 <span>{artistName} - {trackName}</span>
-                {props.player ? <Player url={props.player}/> : null}
               </div>
               <div className="collection-wrapper col">
                 <div className="collection-name">
@@ -76,6 +74,13 @@ const ResultsItem = (props) => {
             </div>
         </div>
     );
+}
+
+ResultsItem.propTypes = {
+  data: PropTypes.object,
+  additionalClass: PropTypes.string,
+  handleClickItem: PropTypes.func,
+  arrIndex: PropTypes.number
 }
 
 export default ResultsItem;
