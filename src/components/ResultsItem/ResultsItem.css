@@ -73,6 +73,10 @@
   margin: 0 10px 0 0;
 }
 
+.cover img {
+  border: 2px solid blue;
+}
+
 .genre,
 .collection {
   flex: 1 100px;

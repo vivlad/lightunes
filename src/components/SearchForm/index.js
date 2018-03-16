@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-class SearchForm extends Component {
+export default class SearchForm extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
             input: '',
         }
+    }
+
+    static propTypes = {
+      submitHandler: PropTypes.func,
     }
     
     searchInputHandler = (e) => {
@@ -31,9 +35,3 @@ class SearchForm extends Component {
         );
     }
 }
-
-SearchForm.propTypes = {
-  submitHandler: PropTypes.func,
-}
-
-export default SearchForm;

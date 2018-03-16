@@ -12,10 +12,11 @@ class App extends Component {
     this.state = {
         searchResults: null,
         message: messages.tryToSearch,
-        openedItem: null,
+        openedItem: null
     }
   }
 
+  //preparing search string for query and query launch
   dataLoader = (query) => {
     const s = query.trim().replace( /\s+/, '+' );
     const queryURL = `https://itunes.apple.com/search?term=${s}`;
@@ -28,6 +29,7 @@ class App extends Component {
     .catch( e => console.log('Fetching data error', e) );
   }
 
+  //save data which was loaded through query
   dataSaver = (searchResults) => {
     if( 'object' === typeof searchResults && 
       searchResults.resultCount > 0 
@@ -35,15 +37,17 @@ class App extends Component {
       this.setState({
         searchResults,
         message: '',
+        openedItem: null
       });
     } else {
       this.setState({
         searchResults: null,
-        message: messages.nothingFound,
+        message: messages.nothingFound
       });
     }
   }
 
+  //for opening cards
   handleClickItem = (idx) => {
     this.setState( (prevState) => {
       if( prevState.openedItem === idx ) {

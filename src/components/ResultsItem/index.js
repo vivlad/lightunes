@@ -17,10 +17,16 @@ const ResultsItem = (props) => {
     } = props.data;
 
     //time format
-    let seconds = Math.floor(trackTimeMillis / 1000);
-    let minutes = Math.floor(seconds / 60);
-    seconds = seconds % 60;
-    seconds = seconds > 10 ? seconds : '0' + seconds;
+
+    //defaults is 0 because sometimes trackTimeMillis is undefined
+    let seconds = 0;
+    let minutes = 0;
+    if( 'number' === typeof trackTimeMillis ) {
+      seconds = Math.floor(trackTimeMillis / 1000);
+      minutes = Math.floor(seconds / 60);
+      seconds = seconds % 60;
+      seconds = seconds > 10 ? seconds : '0' + seconds;
+    }
 
     return (
         <div className={`results-item ${props.additionalClass}`}>
