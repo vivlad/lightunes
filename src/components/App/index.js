@@ -26,7 +26,15 @@ class App extends Component {
     fetch( queryURL, fetchParams )
     .then( response => response.json() )
     .then( searchResults => this.dataSaver(searchResults) )
-    .catch( e => console.log('Fetching data error', e) );
+    .catch( e => this.fetchingErrorHandler(e) );
+  }
+
+  //handle fetching errors
+  fetchingErrorHandler = (e) => {
+    this.setState({
+      searchResults: null,
+      message: messages.networkError
+    });
   }
 
   //save data which was loaded through query
